@@ -7,19 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import Butonolustur from './components/button';
 function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.button_text}>Artan</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.button_text}>Azalan</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.button_text}>Tarih</Text>
-        </TouchableOpacity>
+        <Butonolustur baslik="Artan" />
+        <Butonolustur baslik="Azalan" />
+        <Butonolustur baslik="Tarih" />
       </View>
     </SafeAreaView>
   );
