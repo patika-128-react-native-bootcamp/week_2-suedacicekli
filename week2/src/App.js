@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import Butonolustur from './components/button';
+import Inputt from './components/input';
 
 function App() {
   return (
@@ -22,11 +23,7 @@ function App() {
       <View style={styles.priceList}></View>
 
       <View>
-        <Text style={styles.textInput}>Name</Text>
-        <TextInput style={styles.input} placeholder="enter name" />
-
-        <Text style={styles.textInput}>Price</Text>
-        <TextInput style={styles.input} placeholder="enter price" />
+        <Inputt />
       </View>
       <View style={styles.AddButton}>
         <Button title="Add" color="white" style={styles.AddTitle} />
@@ -50,16 +47,6 @@ const styles = StyleSheet.create({
   priceList: {
     flex: 0.9,
     backgroundColor: '#e0e0e0',
-  },
-  input: {
-    marginTop: -12,
-    height: 35,
-    margin: 12,
-    padding: 10,
-    backgroundColor: '#ebeef3',
-  },
-  textInput: {
-    margin: 12,
   },
   AddButton: {
     backgroundColor: '#475963',
