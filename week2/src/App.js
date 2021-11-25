@@ -5,9 +5,12 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
+  TextInput,
+  Button,
 } from 'react-native';
 
 import Butonolustur from './components/button';
+
 function App() {
   return (
     <SafeAreaView style={styles.container}>
@@ -15,6 +18,18 @@ function App() {
         <Butonolustur baslik="Artan" />
         <Butonolustur baslik="Azalan" />
         <Butonolustur baslik="Tarih" />
+      </View>
+      <View style={styles.priceList}></View>
+
+      <View>
+        <Text style={styles.textInput}>Name</Text>
+        <TextInput style={styles.input} placeholder="enter name" />
+
+        <Text style={styles.textInput}>Price</Text>
+        <TextInput style={styles.input} placeholder="enter price" />
+      </View>
+      <View style={styles.AddButton}>
+        <Button title="Add" color="white" style={styles.AddTitle} />
       </View>
     </SafeAreaView>
   );
@@ -32,17 +47,26 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: '#ededf5',
-    borderRadius: 7,
-    height: 32,
-    width: 110,
-    borderWidth: 0.5,
-    justifyContent: 'center',
+  priceList: {
+    flex: 0.9,
+    backgroundColor: '#e0e0e0',
   },
-  button_text: {
-    fontWeight: '700',
-    textAlign: 'center',
+  input: {
+    marginTop: -12,
+    height: 35,
+    margin: 12,
+    padding: 10,
+    backgroundColor: '#ebeef3',
+  },
+  textInput: {
+    margin: 12,
+  },
+  AddButton: {
+    backgroundColor: '#475963',
+    margin: 5,
+    height: 35,
+    borderRadius: 7,
+    fontWeight: 'bold',
   },
 });
 
