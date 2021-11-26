@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     fontWeight: 'bold',
   },
+  seperator: {
+    borderWidth: 1,
+    backgroundColor: '#eceff',
+    opacity: 0.2,
+  },
 });
 
 export default styles;

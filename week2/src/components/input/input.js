@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, Button, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, Button, TextInput} from 'react-native';
 
 import styles from './input.style';
 const inputt = props => {
-  const [dataName, setdataName] = useState();
+  const [dataName, setdataName] = useState('NoProduct');
   const [dataPrice, setdataPrice] = useState(0);
 
   const inputArea = () => {
@@ -11,12 +11,14 @@ const inputt = props => {
     let price = dataPrice;
     props.getAddData(product, price);
   };
+  const Seperator = () => <View style={styles.seperator} />;
   return (
     <View>
+      <Seperator />
       <Text style={styles.textInput}>Name</Text>
       <TextInput
         style={styles.input}
-        placeholder="enter name"
+        placeholder="enter product"
         onChangeText={setdataName}
       />
 

@@ -1,1 +1,1 @@
-export {default} from './button_components';
+export {default} from './button';
