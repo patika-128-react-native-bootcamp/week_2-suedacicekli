@@ -12,15 +12,7 @@ import {
 
 import Butonolustur from './components/button';
 import Inputt from './components/input';
-
-const Item = props => {
-  return (
-    <View>
-      <Text>{props.name}</Text>
-      <Text>{props.price}</Text>
-    </View>
-  );
-};
+import Listt from './components/list';
 
 function App() {
   const [dataList, setdataList] = useState([]);
@@ -34,10 +26,6 @@ function App() {
 
   console.log(dataList);
 
-  const renderItems = ({item}) => (
-    <Item name={item.productName} price={item.price} />
-  );
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -46,9 +34,8 @@ function App() {
         <Butonolustur baslik="Tarih" />
       </View>
       <View style={styles.priceList}>
-        <FlatList data={dataList} renderItem={renderItems} />
+        <Listt data={dataList} />
       </View>
-
       <View>
         <Inputt getAddData={addData} />
       </View>
