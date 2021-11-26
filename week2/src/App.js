@@ -7,10 +7,20 @@ import {
   TouchableOpacity,
   TextInput,
   Button,
+  FlatList,
 } from 'react-native';
 
 import Butonolustur from './components/button';
 import Inputt from './components/input';
+
+const Item = props => {
+  return (
+    <View>
+      <Text>{props.name}</Text>
+      <Text>{props.price}</Text>
+    </View>
+  );
+};
 
 function App() {
   const [dataList, setdataList] = useState([]);
@@ -24,6 +34,10 @@ function App() {
 
   console.log(dataList);
 
+  const renderItems = ({item}) => (
+    <Item name={item.productName} price={item.price} />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -31,7 +45,9 @@ function App() {
         <Butonolustur baslik="Azalan" />
         <Butonolustur baslik="Tarih" />
       </View>
-      <View style={styles.priceList}></View>
+      <View style={styles.priceList}>
+        <FlatList data={dataList} renderItem={renderItems} />
+      </View>
 
       <View>
         <Inputt getAddData={addData} />
