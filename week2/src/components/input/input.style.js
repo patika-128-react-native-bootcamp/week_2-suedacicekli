@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const süsleme = StyleSheet.create({
+const styles = StyleSheet.create({
   input: {
     marginTop: -12,
     height: 35,
@@ -24,4 +24,4 @@ const süsleme = StyleSheet.create({
   },
 });
 
-export default süsleme;
+export default styles;
