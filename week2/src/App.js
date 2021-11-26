@@ -34,7 +34,7 @@ function App() {
       <View style={styles.priceList}></View>
 
       <View>
-        <Inputt asd={addData} />
+        <Inputt getAddData={addData} />
       </View>
     </SafeAreaView>
   );
