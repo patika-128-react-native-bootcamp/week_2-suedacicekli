@@ -15,6 +15,13 @@ const süsleme = StyleSheet.create({
     flex: 0.9,
     backgroundColor: '#e0e0e0',
   },
+  AddButton: {
+    backgroundColor: '#475963',
+    margin: 5,
+    height: 35,
+    borderRadius: 7,
+    fontWeight: 'bold',
+  },
 });
 
 export default süsleme;
