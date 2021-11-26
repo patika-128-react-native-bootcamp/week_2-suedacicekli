@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   SafeAreaView,
@@ -13,6 +13,17 @@ import Butonolustur from './components/button';
 import Inputt from './components/input';
 
 function App() {
+  const [dataList, setdataList] = useState([]);
+  const addData = (product, price) => {
+    const productsData = {
+      productName: product,
+      price: price,
+    };
+    setdataList([productsData, ...dataList]);
+  };
+
+  console.log(dataList);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -23,10 +34,7 @@ function App() {
       <View style={styles.priceList}></View>
 
       <View>
-        <Inputt />
-      </View>
-      <View style={styles.AddButton}>
-        <Button title="Add" color="white" style={styles.AddTitle} />
+        <Inputt asd={addData} />
       </View>
     </SafeAreaView>
   );
@@ -47,13 +55,6 @@ const styles = StyleSheet.create({
   priceList: {
     flex: 0.9,
     backgroundColor: '#e0e0e0',
-  },
-  AddButton: {
-    backgroundColor: '#475963',
-    margin: 5,
-    height: 35,
-    borderRadius: 7,
-    fontWeight: 'bold',
   },
 });
 
