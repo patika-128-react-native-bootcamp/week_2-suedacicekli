@@ -1,16 +1,7 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  TextInput,
-  Button,
-  FlatList,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 
-import Butonolustur from './components/button';
+import CreateButton from './components/button';
 import Inputt from './components/input';
 import Listt from './components/list';
 
@@ -20,25 +11,48 @@ function App() {
     const productsData = {
       productName: product,
       price: price,
+      date: new Date(),
     };
     setdataList([productsData, ...dataList]);
   };
 
-  console.log(dataList);
+  //console.log(dataList);
+
+  const sortListASC = () => {
+    dataList.sort((obj1, obj2) => {
+      return obj1.price - obj2.price;
+    });
+
+    setdataList([...dataList]);
+  };
+
+  const sortListDES = () => {
+    dataList.sort((obj1, obj2) => {
+      return obj2.price - obj1.price;
+    });
+    setdataList([...dataList]);
+  };
+
+  const sortListDate = () => {
+    dataList.sort((obj1, obj2) => {
+      return obj2.date - obj1.date;
+    });
+    setdataList([...dataList]);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Butonolustur baslik="Artan" />
-        <Butonolustur baslik="Azalan" />
-        <Butonolustur baslik="Tarih" />
+        <CreateButton
+          increased={sortListASC}
+          decreased={sortListDES}
+          historical={sortListDate}
+        />
       </View>
       <View style={styles.priceList}>
         <Listt data={dataList} />
       </View>
-      <View>
-        <Inputt getAddData={addData} />
-      </View>
+      <Inputt getAddData={addData} />
     </SafeAreaView>
   );
 }
@@ -48,16 +62,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  header: {
-    flexDirection: 'row',
-    flex: 0.07,
-    backgroundColor: 'white',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
   priceList: {
     flex: 0.9,
-    backgroundColor: '#e0e0e0',
+    backgroundColor: 'white',
+  },
+  header: {
+    flex: 0.1,
   },
 });
 
